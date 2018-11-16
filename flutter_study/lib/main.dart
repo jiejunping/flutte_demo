@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study/testwidget/ImageStatelessageWideget.dart';
 import 'package:flutter_study/constvalue/Const.dart';
 import 'package:flutter_study/testwidget/MyAppBar.dart';
+import 'package:flutter_study/testwidget/RowWidget.dart';
+import 'package:flutter_study/testwidget/Counter.dart';
 
 //=> dart单行行数或方法的简写
 void main() => runApp(new MyApp());
@@ -25,29 +27,31 @@ class MyApp extends StatelessWidget {
 //          backgroundColor: Colors.greenAccent,
 //        ),
         //ListView来显示列表项,支持垂直和水平方向展示
+        //ListView -extends->BoxScrollView -extends->ScrollView -extends->StatelessWidget
         body: new ListView(
           children: <Widget>[
-
             new MyAppBar(
               title: new Text(
                 "title",
                 style: Theme.of(context).primaryTextTheme.title,
               ),
             ),
-            new ImageStatelessageWideget("images/lake.jpg",
-            type: Const.assetImg,height: 200.0,),
-
-
+            new ImageStatelessageWideget(
+              "images/lake.jpg",
+              type: Const.assetImg,
+              height: 200.0,
+            ),
+            new RowWidget(),
+            new Counter(),
           ],
         ),
 
-          floatingActionButton: new FloatingActionButton(
-          //tooltip一个提示字符串,在长按按钮时弹出
+        floatingActionButton: new FloatingActionButton(
+            //tooltip一个提示字符串,在长按按钮时弹出
             tooltip: "Add",
             child: new Icon(Icons.add),
             onPressed: null //null 会禁用button
-        ),
-        
+            ),
       ),
     );
   }
